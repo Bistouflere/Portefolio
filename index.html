@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portefolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Background-->
+    <video id="background-video" autoplay muted loop playsinline>
+        <source src="assets/background.mp4" type="video/mp4">
+    </video>
+
+    <div id="video-overlay"></div>
+
+    <div id="main-container">
+        <!-- Page d'acceuil-->
+        <main id="sheet" class="screen active">
+            <div class="top-title">
+                <h1><span class="highlight">Quelque chose</span></h1>
+                <hr>
+            </div>
+            
+            <div class="informations-layout">
+                <div class="portrait">
+                    <div class="portrait-placeholder">ILLUSTRATION</div>
+                </div>
+
+                <div class="informations">
+                    <nav id="main-menu">
+                        <ul>
+                            <li class="menu-item selected" data-target="gallery">GALERIE #1</li>
+                            <li class="menu-item" data-target="contact">CONTACT</li>
+                            <li class="menu-item" data-target="skills">COMPÉTENCES</li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </main>
+
+        <!-- fenêtres -->
+        <section id="gallery" class="window">
+            <div class="window-header"><h2>[ GALERIE #1 ]</h2></div>
+            <div class="window-content">
+                <p>galerie</p>
+            </div>
+        </section>
+
+        <section id="contact" class="window">
+            <div class="window-header"><h2>[ CONTACT ]</h2></div>
+            <div class="window-content">
+                <p>contact</p>
+            </div>
+        </section>
+
+        <section id="skills" class="window">
+            <div class="window-header"><h2>[ COMPÉTENCES ]</h2></div>
+            <div class="window-content">
+                <p>compétences</p>
+            </div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
