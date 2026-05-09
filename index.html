@@ -1,67 +1,123 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Portefolio</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
     <!-- Background-->
     <video id="background-video" autoplay muted loop playsinline>
-        <source src="assets/background.mp4" type="video/mp4">
+      <source src="assets/background.mp4" type="video/mp4" />
     </video>
 
     <div id="video-overlay"></div>
 
     <div id="main-container">
-        <!-- Page d'acceuil-->
-        <main id="sheet" class="screen active">
-            <div class="top-title">
-                <h1><span class="highlight">Quelque chose</span></h1>
-                <hr>
-            </div>
-            
-            <div class="informations-layout">
-                <div class="portrait">
-                    <div class="portrait-placeholder">ILLUSTRATION</div>
+      <!-- Page d'acceuil-->
+      <main id="sheet" class="screen active">
+        <div class="top-title">
+          <h1><span class="highlight">Portfolio</span></h1>
+          <hr />
+        </div>
+
+        <div class="informations-layout">
+          <div class="portrait">
+            <div class="portrait-placeholder">ILLUSTRATION</div>
+
+            <div class="char-data">
+              <div class="data-row">
+                <span class="label">NOM :</span>
+                <span class="value">TRUONG Timothy</span>
+              </div>
+              <div class="data-row">
+                <span class="label">JOB :</span>
+                <span class="value">Étudiant à l'EPHEC</span>
+              </div>
+              <hr class="data-separator" />
+              <div class="status-bars">
+                <div class="bar-container">
+                  <span class="bar-label">HP</span>
+                  <div class="symbols life">
+                    <span class="active">❤</span>
+                    <span class="active">❤</span>
+                    <span class="active">❤</span>
+                    <span class="empty">❤</span>
+                    <span class="empty">❤</span>
+                  </div>
                 </div>
 
-                <div class="informations">
-                    <nav id="main-menu">
-                        <ul>
-                            <li class="menu-item selected" data-target="gallery">GALERIE #1</li>
-                            <li class="menu-item" data-target="contact">CONTACT</li>
-                            <li class="menu-item" data-target="skills">COMPÉTENCES</li>
-                        </ul>
-                    </nav>
+                <div class="bar-container">
+                  <span class="bar-label">EP</span>
+                  <div class="symbols energy">
+                    <span class="active">⚡</span>
+                    <span class="empty">⚡</span>
+                    <span class="empty">⚡</span>
+                    <span class="empty">⚡</span>
+                    <span class="empty">⚡</span>
+                  </div>
                 </div>
+              </div>
             </div>
-        </main>
+          </div>
 
-        <!-- fenêtres -->
-        <section id="gallery" class="window">
-            <div class="window-header"><h2>[ GALERIE #1 ]</h2></div>
-            <div class="window-content">
-                <p>galerie</p>
-            </div>
-        </section>
+          <div class="informations">
+            <nav id="main-menu">
+              <ul>
+                <li class="menu-item selected" data-target="gallery">
+                  GALERIE #1
+                </li>
+                <li class="menu-item" data-target="contact">CONTACT</li>
+                <li class="menu-item" data-target="skills">COMPÉTENCES</li>
+                <li class="menu-item" data-target="cv">CV</li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </main>
 
-        <section id="contact" class="window">
-            <div class="window-header"><h2>[ CONTACT ]</h2></div>
-            <div class="window-content">
-                <p>contact</p>
-            </div>
-        </section>
+      <!-- fenêtres -->
+      <section id="gallery" class="window">
+        <div class="window-header"><h2>[ GALERIE #1 ]</h2></div>
+        <div class="window-content">
+          <p>galerie</p>
+        </div>
+      </section>
 
-        <section id="skills" class="window">
-            <div class="window-header"><h2>[ COMPÉTENCES ]</h2></div>
-            <div class="window-content">
-                <p>compétences</p>
-            </div>
-        </section>
+      <section id="contact" class="window">
+        <div class="window-header"><h2>[ CONTACT ]</h2></div>
+        <div class="window-content">
+          <p>contact</p>
+        </div>
+      </section>
+
+      <section id="skills" class="window">
+        <div class="window-header"><h2>[ COMPÉTENCES ]</h2></div>
+        <div class="window-content">
+          <p>compétences</p>
+        </div>
+      </section>
+
+      <section id="cv" class="window">
+        <div class="window-header"><h2>[ CV ]</h2></div>
+        <div class="window-content">
+          <p>CV</p>
+        </div>
+      </section>
+
+      <!-- Légende -->
+      <aside id="controls-legend">
+        <div class="legend-header">COMMANDES</div>
+        <ul class="legend-list">
+          <li><span class="key">↑↓</span> Naviguer</li>
+          <li><span class="key">ENT</span> Sélectionner</li>
+          <li><span class="key">ESC</span> Retour</li>
+          <li><span class="key">←→</span> Rien</li>
+        </ul>
+      </aside>
     </div>
 
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
