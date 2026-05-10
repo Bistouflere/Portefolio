@@ -274,7 +274,7 @@ ul {
 .window {
   position: absolute;
   top: 0;
-  left: 0;
+  left: 70;
   transform: translate(-50%, -50%);
   width: 90%;
   height: 90%;
@@ -295,8 +295,8 @@ ul {
   opacity: 1;
   visibility: visible;
   transform: scale(1) translate(-50%, -50%);
-  top: 40% !important;
-  left: 80% !important;
+  top: 10% !important;
+  left: 10% !important;
   pointer-events: all;
 }
 
@@ -304,6 +304,36 @@ ul {
   background: var(--highlight);
   color: #000;
   padding: 5px 10px;
+}
+
+.scrollable-pdf {
+  flex-grow: 3;
+  overflow: hidden;
+  background: #fff;
+  margin: 10px;
+  border: 2px solid var(--border-color);
+}
+
+.download-link {
+  position: absolute;
+  right: 10px;
+  top: 5px;
+  text-decoration: none;
+  color: #000;
+  font-size: 0.8rem;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.download-link:hover .key {
+  background: var(--highlight);
+  color: #000;
+}
+
+iframe {
+  border: none;
+  display: block;
 }
 
 .hidden {
