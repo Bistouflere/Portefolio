@@ -1,10 +1,13 @@
 const menuItems = document.querySelectorAll(".menu-item");
+const contactItems = document.querySelectorAll(".contact-item");
 let currentIndex = 0;
+let contactIndex = 0;
 let currentOpenWindow = null;
 
 const soundOpen = new Audio("assets/open.wav");
 const soundClose = new Audio("assets/close.wav");
 const soundSelect = new Audio("assets/select.wav");
+const soundCopy = new Audio("assets/copy.wav");
 
 soundOpen.volume = 0.5;
 soundClose.volume = 0.5;
@@ -13,6 +16,12 @@ soundSelect.volume = 0.3;
 function updateSelection() {
   menuItems.forEach((item, index) => {
     item.classList.toggle("selected", index === currentIndex);
+  });
+}
+
+function updateContactSelection() {
+  contactItems.forEach((item, index) => {
+    item.classList.toggle("selected", index === contactIndex);
   });
 }
 
@@ -42,45 +51,78 @@ function openWindow(id) {
   }
 }
 
-document.addEventListener("keydown", (e) => {
+function closeCurrentWindow() {
   if (currentOpenWindow) {
+    soundClose.currentTime = 0;
+    soundClose.play();
+    currentOpenWindow.classList.remove("active");
+    currentOpenWindow = null;
+  }
+}
+document.addEventListener("keydown", (e) => {
+  // CONTACT
+  if (currentOpenWindow && currentOpenWindow.id === "contact") {
     if (e.key === "Escape") {
-      soundClose.currentTime = 0;
-      soundClose.play();
+      closeCurrentWindow();
+    } else if (e.key === "ArrowDown") {
+      soundSelect.currentTime = 0;
+      soundSelect.play();
+      contactIndex = (contactIndex + 1) % contactItems.length;
+      updateContactSelection();
+    } else if (e.key === "ArrowUp") {
+      soundSelect.currentTime = 0;
+      soundSelect.play();
+      contactIndex =
+        (contactIndex - 1 + contactItems.length) % contactItems.length;
+      updateContactSelection();
+    } else if (e.key === "Enter") {
+      const textToCopy = contactItems[contactIndex].getAttribute("data-copy");
+      navigator.clipboard.writeText(textToCopy);
 
-      currentOpenWindow.classList.remove("active");
-      currentOpenWindow = null;
+      const originalText = contactItems[contactIndex].innerText;
+      contactItems[contactIndex].innerText = "COPIÉ !";
+      setTimeout(() => {
+        contactItems[contactIndex].innerText = originalText;
+      }, 1000);
+
+      soundCopy.play();
     }
     return;
   }
 
+  // Autre fenêtre
+  if (currentOpenWindow) {
+    if (e.key === "Escape") closeCurrentWindow();
+    return;
+  }
+
+  //Menu Principal
   if (e.key === "ArrowDown") {
     soundSelect.currentTime = 0;
     soundSelect.play();
-
     currentIndex = (currentIndex + 1) % menuItems.length;
     updateSelection();
   } else if (e.key === "ArrowUp") {
     soundSelect.currentTime = 0;
     soundSelect.play();
-
     currentIndex = (currentIndex - 1 + menuItems.length) % menuItems.length;
     updateSelection();
   } else if (e.key === "Enter") {
+    soundSelect.currentTime = 0;
     const targetId = menuItems[currentIndex].getAttribute("data-target");
     openWindow(targetId);
   }
 });
 
-// Souris
-menuItems.forEach((item, index) => {
+//Souris
+contactItems.forEach((item, index) => {
   item.addEventListener("mouseover", () => {
-    if (!currentOpenWindow) {
-      currentIndex = index;
-      updateSelection();
-    }
+    contactIndex = index;
+    updateContactSelection();
   });
   item.addEventListener("click", () => {
-    openWindow(item.getAttribute("data-target"));
+    const textToCopy = item.getAttribute("data-copy");
+    navigator.clipboard.writeText(textToCopy);
+    soundSelect.play();
   });
 });

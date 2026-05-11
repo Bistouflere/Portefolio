@@ -10,17 +10,13 @@ body,
 #controls-legend,
 .window,
 #main-menu ul {
-  cursor:
-    url("assets/sword-cursor.png") 0 0,
-    auto !important;
+  cursor: none !important;
 }
 
 .menu-item,
 .window-header,
 .key {
-  cursor:
-    url("assets/sword-cursor.png") 0 0,
-    pointer !important;
+  cursor: none !important;
 }
 
 #background-video {
@@ -245,6 +241,34 @@ ul {
 
 .menu-item.selected::after {
   opacity: 1;
+}
+
+#contact-menu ul {
+  padding-left: 40px;
+  margin-top: 20px;
+}
+
+.contact-item {
+  padding: 10px;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 1.2rem;
+  color: var(--text-color);
+  position: relative;
+  transition: 0.2s;
+}
+
+.contact-item.selected {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--highlight);
+}
+
+.contact-item.selected::after {
+  content: "🗡";
+  position: absolute;
+  left: -35px;
+  top: 50%;
+  transform: translateY(-50%);
+  animation: selectionSwordPulse 1.2s infinite ease-in-out;
 }
 
 @keyframes selectionSwordPulse {
