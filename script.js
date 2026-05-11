@@ -150,16 +150,3 @@ document.addEventListener("keydown", (e) => {
     openWindow(targetId);
   }
 });
-
-//Souris
-contactItems.forEach((item, index) => {
-  item.addEventListener("mouseover", () => {
-    contactIndex = index;
-    updateContactSelection();
-  });
-  item.addEventListener("click", () => {
-    const textToCopy = item.getAttribute("data-copy");
-    navigator.clipboard.writeText(textToCopy);
-    soundSelect.play();
-  });
-});
