@@ -273,9 +273,7 @@ ul {
 
 .window {
   position: absolute;
-  top: 0;
-  left: 70;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, 0%);
   width: 90%;
   height: 90%;
   background: rgba(0, 0, 0, 0.95);
@@ -295,8 +293,8 @@ ul {
   opacity: 1;
   visibility: visible;
   transform: scale(1) translate(-50%, -50%);
-  top: 10% !important;
-  left: 10% !important;
+  top: 50% !important;
+  left: 70% !important;
   pointer-events: all;
 }
 
