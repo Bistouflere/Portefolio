@@ -8,9 +8,7 @@
   </head>
   <body>
     <!-- Background-->
-    <video id="background-video" autoplay muted loop playsinline>
-      <source src="assets/background.mp4" type="video/mp4" />
-    </video>
+    <div class="gif-background"></div>
 
     <div id="video-overlay"></div>
 
@@ -86,9 +84,45 @@
 
       <!-- fenêtres -->
       <section id="gallery" class="window">
-        <div class="window-header"><h2>[ GALERIE #1 ]</h2></div>
-        <div class="window-content">
-          <p>galerie</p>
+        <div class="window-header">
+          <h2>[ GALERIE ]</h2>
+          <span id="gallery-counter" style="float: right">1 / 2</span>
+        </div>
+        <div class="window-content gallery-container">
+          <div class="gallery-slide active">
+            <h3>LET'S FIX IT</h3>
+            <img
+              src="assets/lets-fix-it-recto.jpg"
+              alt="Preuve participation lets fix it, recto"
+              class="gallery-img"
+            />
+            <div class="gallery-text">
+              <p>Description détaillée du projet.</p>
+            </div>
+            <img
+              src="assets/lets-fix-it-verso.jpg"
+              alt="Preuve participation lets fix it, verso"
+              class="gallery-img"
+            />
+            <div class="gallery-text">
+              <p>Plus de texte.</p>
+            </div>
+          </div>
+          <div class="gallery-slide">
+            <h3>FOXES</h3>
+            <img
+              src="assets/frisbee-team.JPG"
+              alt="Team ultimate frisbee"
+              class="gallery-img"
+            />
+            <div class="gallery-text">
+              <p>Description du second projet.</p>
+            </div>
+            <img src="assets/nice.JPG" alt="WHAT A THROW" class="gallery-img" />
+            <div class="gallery-text">
+              <p>Que ça parle.</p>
+            </div>
+          </div>
         </div>
       </section>
 

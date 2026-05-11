@@ -2,6 +2,7 @@ const menuItems = document.querySelectorAll(".menu-item");
 const contactItems = document.querySelectorAll(".contact-item");
 let currentIndex = 0;
 let contactIndex = 0;
+let currentSlideIndex = 0;
 let currentOpenWindow = null;
 
 const soundOpen = new Audio("assets/open.wav");
@@ -17,6 +18,22 @@ function updateSelection() {
   menuItems.forEach((item, index) => {
     item.classList.toggle("selected", index === currentIndex);
   });
+}
+
+function updateGallery() {
+  const slides = document.querySelectorAll(".gallery-slide");
+  const counter = document.getElementById("gallery-counter");
+
+  slides.forEach((slide, index) => {
+    slide.classList.toggle("active", index === currentSlideIndex);
+  });
+
+  if (counter) {
+    counter.innerText = `${currentSlideIndex + 1} / ${slides.length}`;
+  }
+
+  const content = document.querySelector("#gallery .window-content");
+  content.scrollTop = 0;
 }
 
 function updateContactSelection() {
@@ -88,6 +105,26 @@ document.addEventListener("keydown", (e) => {
       soundCopy.play();
     }
     return;
+  }
+
+  if (currentOpenWindow && currentOpenWindow.id === "gallery") {
+    const content = currentOpenWindow.querySelector(".window-content");
+    const slides = document.querySelectorAll(".gallery-slide");
+
+    if (e.key === "ArrowRight") {
+      soundSelect.play();
+      currentSlideIndex = (currentSlideIndex + 1) % slides.length;
+      updateGallery();
+    } else if (e.key === "ArrowLeft") {
+      soundSelect.play();
+      currentSlideIndex =
+        (currentSlideIndex - 1 + slides.length) % slides.length;
+      updateGallery();
+    } else if (e.key === "ArrowDown") {
+      content.scrollBy({ top: 40, behavior: "smooth" });
+    } else if (e.key === "ArrowUp") {
+      content.scrollBy({ top: -40, behavior: "smooth" });
+    }
   }
 
   // Autre fenêtre
